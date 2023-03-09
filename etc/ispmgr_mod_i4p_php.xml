@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mgrdata>
+    <plugin name="i4p_php" version="1.0.0">
+		<descr lang="en">ISP4Private - PHP Selector | Plugin page: http://isp4private.ru/plugins/php/</descr>
+		<descr lang="ru">ISP4Private - Альтернативные версии PHP | Страница плагина: http://isp4private.ru/plugins/php/</descr>
+		<description lang="en">ISP4Private - PHP Selector | Plugin page: http://isp4private.ru/plugins/php/</description>
+		<description lang="ru">ISP4Private - Альтернативные версии PHP | Страница плагина: http://isp4private.ru/plugins/php/</description>
+		<author name="ISP4Private.Ru" contacts="isp4private@gmail.com">ISP4Private.Ru</author>
+		<contact>isp4private@gmail.com</contact>
+		<url>http://isp4private.ru/download/plugins/i4p_php.tar.gz</url>
+		<manager>ispmgr</manager>
+		<lang>php</lang>
+		<require>dom</require>
+		<depend>i4p_lib_eac 1.1.0</depend>
+		<site>http://isp4private.ru/plugins/php/</site>
+		<name lang="en">ISP4Private - PHP Selector</name>
+		<name lang="ru">ISP4Private - Альтернативные версии PHP</name>
+		<version>1.0.0</version>
+	</plugin>
+	<handler name="i4p_php.php" type="xml" minlevel="1">
+		<func>i4p.www.php</func>
+		<func>i4p.php.list</func>
+		<func>_i4p.php.new</func>
+		<func>_i4p.php.edit</func>
+		<func>_i4p.php.delete</func>
+	</handler>
+	<mainmenu level="7">
+		<node name="ISP4Private">
+			<node name="i4p.php.list" noapi="yes"/>
+		</node>
+	</mainmenu>
+	<metadata name="i4p.php.list" type="list" key="id" selficon="integration">
+      <toolbar>
+        <toolbtn func="i4p.php.new" type="list"  img="t-new" name="new"/>
+        <toolbtn func="i4p.php.edit" type="edit" img="t-edit" name="edit" default="yes"/>
+		<toolbtn func="i4p.php.delete" type="edit" img="t-delete" name="delete"/>
+      </toolbar>
+      <coldata>
+        <col sort="alpha" if="myhide" sorted="yes" name="id" type="data"/>
+		<col sort="alpha" name="name" type="data"/>
+		<col sort="digit" name="bin" type="data"/>
+		<col name="status" sort="prop">
+			<prop name="v" onimg="p-on" defimg="p-off" stat="yes"/>
+			<prop name="err_binary" onimg="p-lt4" stat="yes"/>
+	  	</col> 
+      </coldata>
+    </metadata>
+	<metadata name="wwwdomain" type="list" key="name">
+		<toolbar>
+			<toolbtn func="i4p.www.php" type="edit" img="t-edit" name="i4p_php"/>
+		</toolbar>
+	</metadata>
+	<metadata name="i4p.www.php" type="form" >
+        <form>
+            <field name="php">
+                <select sorted="ask" name="php"/>
+			</field>
+        </form>
+    </metadata>
+	
+	<lang name="en">
+	    <messages name="desktop">
+			<msg name="menu_i4p.php.list">PHP Versions</msg>
+		</messages>
+	    <messages name="i4p.php.list">
+    		<msg name="title">Alternative versions of PHP</msg>
+    	    <msg name="name">Name</msg>
+    	    <msg name="bin">Path to binary file</msg>
+    	    <msg name="status">Status</msg>
+    	    <msg name="short_new">Add</msg>
+    		<msg name="hint_new">Add PHP Version</msg>
+    	    <msg name="short_edit">Edit</msg>
+    		<msg name="hint_edit">Change PHP version settings</msg>
+    	    <msg name="short_delete">Delete</msg>
+    		<msg name="hint_delete">Remove this version of PHP</msg>
+		</messages>
+		<messages name="wwwdomain">
+			<msg name="short_i4p_php">PHP Version</msg>
+			<msg name="hint_i4p_php">Select version for PHP processing</msg>
+		</messages>
+		<messages name="i4p.www.php">
+			<msg name="title">PHP version selection</msg>
+			<msg name="php">PHP Version</msg>
+		</messages>
+	</lang>
+	<lang name="ru">
+	    <messages name="desktop">
+			<msg name="menu_i4p.php.list">Версии PHP</msg>
+		</messages>
+	    <messages name="i4p.php.list">
+    		<msg name="title">Альтернативные версии PHP</msg>
+    	    <msg name="name">Название</msg>
+    	    <msg name="bin">Путь до бинарного файла</msg>
+    	    <msg name="status">Статус</msg>
+    	    <msg name="short_new">Добавить</msg>
+    		<msg name="hint_new">Добавить версию PHP</msg>
+    	    <msg name="short_edit">Изменить</msg>
+    		<msg name="hint_edit">Изменить настройки версии PHP</msg>
+    	    <msg name="short_delete">Удалить</msg>
+    		<msg name="hint_delete">Удалить данную версию PHP</msg>
+		</messages>
+		<messages name="wwwdomain">
+			<msg name="short_i4p_php">Версия PHP</msg>
+			<msg name="hint_i4p_php">Выбрать версию для обработки PHP</msg>
+		</messages>
+		<messages name="i4p.www.php">
+			<msg name="title">Выбор версии PHP</msg>
+		</messages>
+	</lang>
+</mgrdata>
